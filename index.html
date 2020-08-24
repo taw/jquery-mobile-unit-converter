@@ -50,9 +50,9 @@
 
     <div role="main" class="ui-content">
       <label for="masskg">Kilograms</label>
-      <input type="number" id="masskg" value="0">
+      <input type="number" id="masskg" value="45">
       <label for="masslb">Pounds</label>
-      <input type="number" id="masslb" value="32">
+      <input type="number" id="masslb" value="100">
     </div>
 
     <footer data-role="footer">
@@ -99,22 +99,22 @@
     $("#distkm").on("change", function(ev) {
       let km = +ev.target.value;
       let mile = Math.round(km / 1.609344);
-      $("distmile").val(mile);
+      $("#distmile").val(mile);
     })
     $("#distmile").on("change", function(ev) {
       let mile = +ev.target.value;
       let km = Math.round(mile * 1.609344);
-      $("distkm").val(km);
+      $("#distkm").val(km);
     })
     $("#masskg").on("change", function(ev) {
       let kg = +ev.target.value;
       let lb = Math.round(kg * 2.20462);
-      $("masslb").val(mile);
+      $("#masslb").val(lb);
     })
     $("#masslb").on("change", function(ev) {
       let lb = +ev.target.value;
       let kg = Math.round(lb / 2.20462);
-      $("masskg").val(kg);
+      $("#masskg").val(kg);
     })
   </script>
 </body>
