@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<head>
+
+<body>
+
+  <div data-role="page" id="temperature">
+    <div data-role="header">
+      <h1>Temperature</h1>
+    </div>
+
+    <navbar data-role="navbar">
+    <ul>
+      <li><a href="#temerature" class="ui-btn-active">Temperature</a></li>
+      <li><a href="#mass">Mass</a></li>
+      <li><a href="#distance">Distance</a></li>
+    </ul>
+    </navbar>
+
+    <div role="main" class="ui-content">
+      <label for="tempc">Celsius</label>
+      <input type="number" id="tempc" value="0">
+      <label for="tempf">Fahrenheit</label>
+      <input type="number" id="tempf" value="32">
+    </div>
+
+    <footer data-role="footer">
+      <h4>Unit Converter</h4>
+    </footer>
+  </div>
+
+  <div data-role="page" id="mass">
+    <div data-role="header">
+      <h1>Mass</h1>
+    </div>
+
+    <navbar data-role="navbar">
+    <ul>
+      <li><a href="#temperature">Temperature</a></li>
+      <li><a href="#mass" class="ui-btn-active">Mass</a></li>
+      <li><a href="#distance">Distance</a></li>
+    </ul>
+    </navbar>
+
+    <div role="main" class="ui-content">
+      <label for="masskg">Kilograms</label>
+      <input type="number" id="masskg" value="0">
+      <label for="masslb">Pounds</label>
+      <input type="number" id="masslb" value="32">
+    </div>
+
+    <footer data-role="footer">
+      <h4>Unit Converter</h4>
+    </footer>
+  </div>
+
+  <div data-role="page" id="distance">
+    <div data-role="header">
+      <h1>Distance</h1>
+    </div>
+
+    <navbar data-role="navbar">
+    <ul>
+      <li><a href="#temperature">Temperature</a></li>
+      <li><a href="#mass">Mass</a></li>
+      <li><a href="#distance" class="ui-btn-active">Distance</a></li>
+    </ul>
+    </navbar>
+
+    <div role="main" class="ui-content">
+      <label for="distkm">Kilometers</label>
+      <input type="number" id="distkm" value="100">
+      <label for="distmile">Miles</label>
+      <input type="number" id="distmile" value="62">
+    </div>
+
+    <footer data-role="footer">
+      <h4>Unit Converter</h4>
+    </footer>
+  </div>
+
+  <script>
+    $("#tempc").on("change", function(ev) {
+      let c = +ev.target.value;
+      let f = Math.round(c*9/5 + 32);
+      $("#tempf").val(f);
+    })
+    $("#tempf").on("change", function(ev) {
+      let f = +ev.target.value;
+      let c = Math.round((f-32)*5/9);
+      $("#tempc").val(c);
+    })
+    $("#distkm").on("change", function(ev) {
+      let km = +ev.target.value;
+      let mile = Math.round(km / 1.609344);
+      $("distmile").val(mile);
+    })
+    $("#distmile").on("change", function(ev) {
+      let mile = +ev.target.value;
+      let km = Math.round(mile * 1.609344);
+      $("distkm").val(km);
+    })
+    $("#masskg").on("change", function(ev) {
+      let kg = +ev.target.value;
+      let lb = Math.round(kg * 2.20462);
+      $("masslb").val(mile);
+    })
+    $("#masslb").on("change", function(ev) {
+      let lb = +ev.target.value;
+      let kg = Math.round(lb / 2.20462);
+      $("masskg").val(kg);
+    })
+  </script>
+</body>
+</html>
